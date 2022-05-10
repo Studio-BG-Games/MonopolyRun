@@ -16,7 +16,7 @@ public class Road : MonoBehaviour
         if (other.gameObject.TryGetComponent<CubeMovement>(out CubeMovement player))
         {
             Debug.Log("IN");
-            player.ChangeBounbaries();
+            player.ChangeDirection();
             player.IsTurnOpen = true;
             
         }

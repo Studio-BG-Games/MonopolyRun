@@ -6,15 +6,12 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
 public class CubeMovement : MonoBehaviour
 {
+    [SerializeField] private PlayersFixation playersFixation;
     [SerializeField] private float forceValue;
     [SerializeField] private float turnValue;
-    [SerializeField] private float xMinBoundary, xMaxBoundary, zMinBoundary, zMaxBoundary;
-
+ 
     private Rigidbody rb;
     private float dir = 0;
-    private List<Boundaries> boundaries = new List<Boundaries>();
-    private float xMin, xMax, zMin, zMax;
-    private float whide = 7f;
     private bool isTurnOpen = false;
     private int number = 0;
     private Quaternion myRotation;
@@ -29,7 +26,7 @@ public class CubeMovement : MonoBehaviour
 
         myRotation = Quaternion.identity;
 
-        FillList();
+        playersFixation.FillList();
     }
 
     private void Update()
@@ -37,7 +34,7 @@ public class CubeMovement : MonoBehaviour
         if (IsTurnOpen)
             RotatePlayer();
 
-        Fixation(number);
+        playersFixation.Fixation(number, rb);
     }
     void FixedUpdate()
     {
@@ -70,23 +67,7 @@ public class CubeMovement : MonoBehaviour
         }
     }
 
-    private void Fixation(int i)
-    {
-        rb.position = new Vector3
-            (
-            Mathf.Clamp(rb.position.x, boundaries[i].xMin, boundaries[i].xMax),
-            1.0f,
-            Mathf.Clamp(rb.position.z, boundaries[i].zMin, boundaries[i].zMax)
-            );
-    }
-    private void FillList()
-    {
-        boundaries.Add(new Boundaries(xMinBoundary, xMinBoundary + whide, zMinBoundary, zMaxBoundary));
-        boundaries.Add(new Boundaries(xMinBoundary, xMaxBoundary, zMaxBoundary - whide, zMaxBoundary));
-        boundaries.Add(new Boundaries(xMaxBoundary - whide, xMaxBoundary, zMinBoundary, zMaxBoundary));
-        boundaries.Add(new Boundaries(xMinBoundary, xMaxBoundary, zMinBoundary, zMinBoundary + whide));
-    }
-    public void ChangeBounbaries()
+    public void ChangeDirection()
     {
         playerAngle += 90;
         myRotation.eulerAngles = new Vector3(0, playerAngle, 0);
