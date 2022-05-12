@@ -2715,7 +2715,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 441500}
-  - component: {fileID: 9582704}
+  - component: {fileID: 533096331}
   m_Layer: 0
   m_Name: Character_Male_Police_01
   m_TagString: Untagged
@@ -2747,7 +2747,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!95 &9582704
+--- !u!95 &533096331
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 0
@@ -2756,11 +2756,11 @@ Animator:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 191860}
   m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: 897b34267f422c1499700402763d096e, type: 3}
+  m_Avatar: {fileID: 9000000, guid: 2f51be603ea52db45be54e6116872d0c, type: 3}
   m_Controller: {fileID: 9100000, guid: e5731c0a698a2d64d8c06c48dafd3cd4, type: 2}
-  m_CullingMode: 1
+  m_CullingMode: 0
   m_UpdateMode: 0
-  m_ApplyRootMotion: 1
+  m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1

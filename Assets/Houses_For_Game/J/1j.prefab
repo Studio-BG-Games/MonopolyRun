@@ -11,8 +11,6 @@ GameObject:
   - component: {fileID: 915031768688667973}
   - component: {fileID: 915031768687961863}
   - component: {fileID: 915031768686405575}
-  - component: {fileID: 888483599725045779}
-  - component: {fileID: 889133633673860769}
   m_Layer: 0
   m_Name: 1j
   m_TagString: Untagged
@@ -29,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 915031768688858585}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: -94.01, y: 0, z: -63.1}
-  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
+  m_LocalScale: {x: 1.5000002, y: 1.5, z: 1.5000002}
   m_Children:
   - {fileID: 915031768688661935}
   - {fileID: 7568957352250912626}
@@ -86,34 +84,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &888483599725045779
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 915031768688858585}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 43991956860864250, guid: 08f252a4011784244a9d6c53e18b1f7c, type: 2}
---- !u!64 &889133633673860769
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 915031768688858585}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 43613033862139046, guid: 08f252a4011784244a9d6c53e18b1f7c, type: 2}
 --- !u!1 &915031768688887907
 GameObject:
   m_ObjectHideFlags: 0
@@ -262,7 +232,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: dumpster (1)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1518914152145616907, guid: 5f4c86d21ca1e204695c3debd42f2bfd, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 5f4c86d21ca1e204695c3debd42f2bfd, type: 3}
 --- !u!4 &7568957353387304064 stripped
 Transform:
@@ -336,7 +307,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: dumpster
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1518914152145616907, guid: 5f4c86d21ca1e204695c3debd42f2bfd, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 5f4c86d21ca1e204695c3debd42f2bfd, type: 3}
 --- !u!4 &7568957352250912626 stripped
 Transform:
