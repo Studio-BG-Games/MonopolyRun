@@ -1,0 +1,159 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fa2a4f1f9884ab4fb81df391a623144, type: 3}
+  m_Name: Building Repo
+  m_EditorClassIdentifier: 
+  buildInfos:
+  - buildName: 1a
+    coast: 100
+    incom: 50
+    reducingKoef: 0.2
+  - buildName: 1b
+    coast: 100
+    incom: 50
+    reducingKoef: 0.2
+  - buildName: 1c
+    coast: 100
+    incom: 50
+    reducingKoef: 0.2
+  - buildName: 1d
+    coast: 100
+    incom: 50
+    reducingKoef: 0.2
+  - buildName: 1e
+    coast: 100
+    incom: 50
+    reducingKoef: 0.2
+  - buildName: 1f
+    coast: 100
+    incom: 50
+    reducingKoef: 0.2
+  - buildName: 1g
+    coast: 100
+    incom: 50
+    reducingKoef: 0.2
+  - buildName: 1h
+    coast: 100
+    incom: 0
+    reducingKoef: 0.2
+  - buildName: 1j
+    coast: 100
+    incom: 0
+    reducingKoef: 0.2
+  - buildName: 1k
+    coast: 100
+    incom: 50
+    reducingKoef: 0.2
+  - buildName: 1l
+    coast: 100
+    incom: 50
+    reducingKoef: 0.2
+  - buildName: 1m
+    coast: 100
+    incom: 50
+    reducingKoef: 0.2
+  - buildName: 2a
+    coast: 500
+    incom: 300
+    reducingKoef: 0.12
+  - buildName: 2b
+    coast: 500
+    incom: 300
+    reducingKoef: 0.12
+  - buildName: 2c
+    coast: 500
+    incom: 300
+    reducingKoef: 0.12
+  - buildName: 2d
+    coast: 500
+    incom: 300
+    reducingKoef: 0.12
+  - buildName: 2e
+    coast: 500
+    incom: 0
+    reducingKoef: 0.12
+  - buildName: 2f
+    coast: 500
+    incom: 300
+    reducingKoef: 0.12
+  - buildName: 2g
+    coast: 500
+    incom: 300
+    reducingKoef: 0.12
+  - buildName: 2h
+    coast: 500
+    incom: 300
+    reducingKoef: 0.12
+  - buildName: 2j
+    coast: 500
+    incom: 300
+    reducingKoef: 0.12
+  - buildName: 2k
+    coast: 500
+    incom: 300
+    reducingKoef: 0.12
+  - buildName: 2l
+    coast: 500
+    incom: 300
+    reducingKoef: 0.12
+  - buildName: 2m
+    coast: 500
+    incom: 300
+    reducingKoef: 0.12
+  - buildName: 3a
+    coast: 1000
+    incom: 700
+    reducingKoef: 0.07
+  - buildName: 3b
+    coast: 1000
+    incom: 700
+    reducingKoef: 0.07
+  - buildName: 3c
+    coast: 1000
+    incom: 700
+    reducingKoef: 0.07
+  - buildName: 3d
+    coast: 1000
+    incom: 700
+    reducingKoef: 0.07
+  - buildName: 3e
+    coast: 1000
+    incom: 700
+    reducingKoef: 0.07
+  - buildName: 3f
+    coast: 1000
+    incom: 700
+    reducingKoef: 0.07
+  - buildName: 3g
+    coast: 1000
+    incom: 700
+    reducingKoef: 0.07
+  - buildName: 3h
+    coast: 1000
+    incom: 700
+    reducingKoef: 0.07
+  - buildName: 3j
+    coast: 1000
+    incom: 700
+    reducingKoef: 0.07
+  - buildName: 3k
+    coast: 1000
+    incom: 700
+    reducingKoef: 0.07
+  - buildName: 3l
+    coast: 1000
+    incom: 700
+    reducingKoef: 0.07
+  - buildName: 3m
+    coast: 1000
+    incom: 700
+    reducingKoef: 0.07
