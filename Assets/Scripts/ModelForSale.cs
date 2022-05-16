@@ -7,12 +7,13 @@ public class ModelForSale : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI playerNameText;
 
+    private string complexName;
     private string buldingName;
     private int coast;
    
-    public void Init(GameObject model,BuildInfo info)
+    public void Init(string complex,GameObject model,BuildInfo info)
     {
-        Debug.Log($"{model.name}");
+        //Debug.Log($"{model.name}");
         var koef = info.reducingKoef;
        
         model.transform.localScale = new Vector3(koef, koef, koef);
@@ -22,8 +23,9 @@ public class ModelForSale : MonoBehaviour
         model.transform.localRotation = Quaternion.identity;
      
         model.gameObject.SetActive(true);
-
+        complexName = complex;
         buldingName = model.name;
+
         coast = info.coast;
         playerNameText.text = $"$ {coast}";
     }
@@ -34,7 +36,7 @@ public class ModelForSale : MonoBehaviour
         {
             if (SaveSystem.userData.coins >= coast)
             {
-                player.CollectBuilbings(buldingName, coast);
+                player.CollectBuilbings(complexName,buldingName, coast);
                 gameObject.SetActive(false);
             }
         }

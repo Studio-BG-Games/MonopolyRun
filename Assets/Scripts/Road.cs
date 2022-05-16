@@ -15,18 +15,15 @@ public class Road : MonoBehaviour
     {
         if (other.gameObject.TryGetComponent<CubeMovement>(out CubeMovement player))
         {
-            Debug.Log("IN");
             player.ChangeDirection();
             player.IsTurnOpen = true;
-            
         }
     }
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.gameObject.TryGetComponent<CubeMovement>(out CubeMovement player))
-        {
-            Debug.Log("OUT");
-            //player.IsTurnOpen = false;
-        }
-    }
+    //private void OnTriggerExit(Collider other)
+    //{
+    //    if (other.gameObject.TryGetComponent<CubeMovement>(out CubeMovement player))
+    //    {
+    //        //player.IsTurnOpen = false;
+    //    }
+    //}
 }

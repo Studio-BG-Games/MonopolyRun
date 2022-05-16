@@ -9,6 +9,7 @@ public class Incom : MonoBehaviour
 
     public void Init(BuildInfo info)
     {
+        gameObject.SetActive(true);
         buildingIncom = info.incom;
         playerNameText.text = $"$ {buildingIncom}";
     }

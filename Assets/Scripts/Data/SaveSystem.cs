@@ -8,7 +8,6 @@ public static class SaveSystem
 {
     public static UserData userData;
 
-    
     public static void LoadUserData()
     {
         string usersJson = GamePlayerPrefs.UserSaver;
@@ -27,19 +26,33 @@ public static class SaveSystem
         GamePlayerPrefs.UserSaver = JsonConvert.SerializeObject(userData);
     }
 
-    public static void ToBuyBuilding(string buildName, int coast)
+    public static void ToBuyBuilding(string complexname,string buildName, int coast)
     {
-        if (userData.boughtBuildings.FirstOrDefault(x => x == buildName) == null)
+        if (userData.boughtBuildings.ContainsKey(complexname))
         {
-            userData.boughtBuildings.Add(buildName);
-            userData.coins -= coast;
-            
-            SaveUserData();
+            if (!userData.boughtBuildings.ContainsValue(buildName))
+            {
+                userData.boughtBuildings[complexname] = buildName;
+                userData.coins -= coast;
+            }
         }
+        else
+        {
+            userData.boughtBuildings.Add(complexname, buildName);
+            userData.coins -= coast;
+        }
+
+       
+        SaveUserData();
     }
     public static void ToCollectMoney(int coast)
     {
         userData.coins += coast;
+    }
+    public static void ToLooseMoney(int coast)
+    {
+        userData.coins -= coast;
+        Debug.Log($"{userData.coins}");
     }
 
     public static void Clear()

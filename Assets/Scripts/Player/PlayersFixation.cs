@@ -10,21 +10,22 @@ public class PlayersFixation : MonoBehaviour
     private float xMin, xMax, zMin, zMax;
     private float whide = 7f;
 
-    
+    public List<Boundaries> Boundaries { get => boundaries; set => boundaries = value; }
+
     public void Fixation(int i,Rigidbody rb)
     {
         rb.position = new Vector3
             (
-            Mathf.Clamp(rb.position.x, boundaries[i].xMin, boundaries[i].xMax),
+            Mathf.Clamp(rb.position.x, Boundaries[i].xMin, Boundaries[i].xMax),
             1.0f,
-            Mathf.Clamp(rb.position.z, boundaries[i].zMin, boundaries[i].zMax)
+            Mathf.Clamp(rb.position.z, Boundaries[i].zMin, Boundaries[i].zMax)
             );
     }
     public void FillList()
     {
-        boundaries.Add(new Boundaries(xMinBoundary, xMinBoundary + whide, zMinBoundary, zMaxBoundary));
-        boundaries.Add(new Boundaries(xMinBoundary, xMaxBoundary, zMaxBoundary - whide, zMaxBoundary));
-        boundaries.Add(new Boundaries(xMaxBoundary - whide, xMaxBoundary, zMinBoundary, zMaxBoundary));
-        boundaries.Add(new Boundaries(xMinBoundary, xMaxBoundary, zMinBoundary, zMinBoundary + whide));
+        Boundaries.Add(new Boundaries(xMinBoundary, xMinBoundary + whide, zMinBoundary, zMaxBoundary));
+        Boundaries.Add(new Boundaries(xMinBoundary, xMaxBoundary, zMaxBoundary - whide, zMaxBoundary));
+        Boundaries.Add(new Boundaries(xMaxBoundary - whide, xMaxBoundary, zMinBoundary, zMaxBoundary));
+        Boundaries.Add(new Boundaries(xMinBoundary, xMaxBoundary, zMinBoundary, zMinBoundary + whide));
     }
 }

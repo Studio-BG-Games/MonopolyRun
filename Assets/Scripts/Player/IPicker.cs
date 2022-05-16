@@ -2,7 +2,7 @@
 
 public interface IPicker 
 {
-    void CollectBuilbings(string name, int cost);
+    void CollectBuilbings(string complexName, string name, int cost);
     void CollectMoney(int cost);
 
 }

@@ -6,41 +6,36 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
 public class CubeMovement : MonoBehaviour
 {
-    [SerializeField] private PlayersFixation playersFixation;
     [SerializeField] private float forceValue;
     [SerializeField] private float turnValue;
- 
-    private Rigidbody rb;
+    [SerializeField] private Rigidbody rb;
+    
+    private PlayersFixation playersFixation;
     private float dir = 0;
     private bool isTurnOpen = false;
-    private int number = 0;
-    private Quaternion myRotation;
+    private int boundaryNumber = 0;
+    private Quaternion myRotation = Quaternion.identity;
     private float playerAngle = 0;
 
     public bool IsTurnOpen { get => isTurnOpen; set => isTurnOpen = value; }
-
-    void Start()
-    {
-        rb = GetComponent<Rigidbody>();
-        SwipeDetection.SwipeEvent += GetDirection;
-
-        myRotation = Quaternion.identity;
-
-        playersFixation.FillList();
-    }
 
     private void Update()
     {
         if (IsTurnOpen)
             RotatePlayer();
 
-        playersFixation.Fixation(number, rb);
+        playersFixation.Fixation(boundaryNumber, rb);
     }
     void FixedUpdate()
     {
         rb.velocity = (transform.forward + transform.right * dir) * forceValue;
     }
 
+    public void Initialize(PlayersFixation _playersFixation)
+    {
+        playersFixation = _playersFixation;
+        SwipeDetection.SwipeEvent += GetDirection;
+    }
     private void GetDirection(Vector3 direction)
     {
         if (direction.x == 0)
@@ -72,7 +67,11 @@ public class CubeMovement : MonoBehaviour
         playerAngle += 90;
         myRotation.eulerAngles = new Vector3(0, playerAngle, 0);
 
-        number++;
+        boundaryNumber++;
+    }
+    private void OnDisable()
+    {
+        SwipeDetection.SwipeEvent -= GetDirection;
     }
 }
 
