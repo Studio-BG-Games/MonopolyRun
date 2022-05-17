@@ -25,7 +25,12 @@ public class Building : MonoBehaviour
                 {
                     buidings[i].SetActive(true);
                     InitIncomModel(i, buildingRepo);
-                    InitModelForSale(i+1, buildingRepo);
+
+                    if (i + 1 < buidings.Count)
+                        InitModelForSale(i + 1, buildingRepo);
+
+                    else
+                        modelForSale.gameObject.SetActive(false);
 
                     return;
                 }
@@ -41,10 +46,30 @@ public class Building : MonoBehaviour
     {
         var info = buildingRepo.GetInfo(buidings[i].name);
         modelForSale.Init(this.gameObject.name, buidings[i], info);
+        modelForSale.OnPurchasing += Purchase;
     }
     private void InitIncomModel(int i,BuildingRepo buildingRepo)
     {
         var info = buildingRepo.GetInfo(buidings[i].name);
         incom.Init(info);
+    }
+
+    private void Purchase()
+    {
+        int k = Random.Range(0,3);
+
+        var construction = Instantiate(Resources.Load("Prefabs/Ñonstruction", typeof(GameObject))) as GameObject;
+        construction.transform.position = this.gameObject.transform.position;
+        construction.transform.Rotate(0, 90*k ,0);
+
+        foreach (var item in buidings)
+        {
+            item.gameObject.SetActive(false);
+        }
+    }
+
+    private void OnDisable()
+    {
+        modelForSale.OnPurchasing -= Purchase;
     }
 }

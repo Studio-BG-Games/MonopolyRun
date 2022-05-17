@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -10,6 +11,8 @@ public class ModelForSale : MonoBehaviour
     private string complexName;
     private string buldingName;
     private int coast;
+
+    public Action OnPurchasing; 
    
     public void Init(string complex,GameObject model,BuildInfo info)
     {
@@ -38,6 +41,7 @@ public class ModelForSale : MonoBehaviour
             {
                 player.CollectBuilbings(complexName,buldingName, coast);
                 gameObject.SetActive(false);
+                OnPurchasing?.Invoke();
             }
         }
     }
