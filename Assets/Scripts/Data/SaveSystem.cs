@@ -30,7 +30,7 @@ public static class SaveSystem
     {
         if (userData.boughtBuildings.ContainsKey(complexname))
         {
-            if (!userData.boughtBuildings.ContainsValue(buildName))
+            if (!userData.boughtBuildings.ContainsValue(buildName) && buildName!=null)
             {
                 userData.boughtBuildings[complexname] = buildName;
                 userData.coins -= coast;
