@@ -35,9 +35,11 @@ public class ModelForSale : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        var _coins = SaveSystem.userData.coins;
+
         if (other.gameObject.TryGetComponent<Picker>(out Picker player))
         {
-            if (SaveSystem.userData.coins >= coast)
+            if (_coins >= coast)
             {
                 player.CollectBuilbings(complexName,buldingName, coast);
                 gameObject.SetActive(false);

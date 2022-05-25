@@ -22,8 +22,8 @@ public class PoliceSpawner : MonoBehaviour
         float zMin = fixation.Boundaries[areaOfPosition].zMin;
         float zMax = fixation.Boundaries[areaOfPosition].zMax;
 
-        float xPos = Random.Range(xMin, xMax);
-        float zPos = Random.Range(zMin, zMax);
+        int xPos = (int)Random.Range(xMin, xMax);
+        int zPos = (int)Random.Range(zMin, zMax);
 
         return new Vector3(xPos, 0, zPos);
     }

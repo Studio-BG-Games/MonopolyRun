@@ -8,10 +8,15 @@ public class CubeMovement : MonoBehaviour
 {
     [SerializeField] private float forceValue;
     [SerializeField] private float turnValue;
+    [SerializeField] private float metroForceValue;
+    [Space]
     [SerializeField] private Rigidbody rb;
-    
+    [SerializeField] private Animator animator;
+    [SerializeField] private Picker picker;
+
     private PlayersFixation playersFixation;
     private float dir = 0;
+    private float force;
     private bool isTurnOpen = false;
     private int boundaryNumber = 0;
     private Quaternion myRotation = Quaternion.identity;
@@ -23,18 +28,21 @@ public class CubeMovement : MonoBehaviour
     {
         if (IsTurnOpen)
             RotatePlayer();
-
-        playersFixation.Fixation(boundaryNumber, rb);
     }
     void FixedUpdate()
     {
-        rb.velocity = (transform.forward + transform.right * dir) * forceValue;
+        rb.velocity = (transform.forward + transform.right * dir) * force;
+
+        playersFixation.Fixation(boundaryNumber, rb);
     }
 
     public void Initialize(PlayersFixation _playersFixation)
     {
+        force = forceValue;
         playersFixation = _playersFixation;
         SwipeDetection.SwipeEvent += GetDirection;
+        picker.OnDown += DownInToMetro;
+        picker.OnChangeBoundary += ChangeBoundaries;
     }
     private void GetDirection(Vector3 direction)
     {
@@ -69,9 +77,22 @@ public class CubeMovement : MonoBehaviour
 
         boundaryNumber++;
     }
+
+    public void DownInToMetro()
+    {
+        animator.SetTrigger("Metro");
+        force = metroForceValue;
+    }
+    public void ChangeBoundaries(int _boundaryNumber)
+    {
+        boundaryNumber = _boundaryNumber;
+        force = forceValue;
+    }
     private void OnDisable()
     {
         SwipeDetection.SwipeEvent -= GetDirection;
+        picker.OnDown -= DownInToMetro;
+        picker.OnChangeBoundary -= ChangeBoundaries;
     }
 }
 

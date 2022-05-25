@@ -1,4 +1,5 @@
 using Newtonsoft.Json;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,6 +8,9 @@ using UnityEngine;
 public static class SaveSystem 
 {
     public static UserData userData;
+
+    public static Action<float> OnUpdateScore;
+    public static Action<int> OnUpdateBuilds;
 
     public static void LoadUserData()
     {
@@ -42,17 +46,20 @@ public static class SaveSystem
             userData.coins -= coast;
         }
 
-       
+        OnUpdateScore?.Invoke(userData.coins);
+        OnUpdateBuilds?.Invoke(userData.boughtBuildings.Count);
+
         SaveUserData();
     }
     public static void ToCollectMoney(int coast)
     {
         userData.coins += coast;
+        OnUpdateScore?.Invoke(userData.coins);
     }
     public static void ToLooseMoney(int coast)
     {
         userData.coins -= coast;
-        Debug.Log($"{userData.coins}");
+        OnUpdateScore?.Invoke(userData.coins);
     }
 
     public static void Clear()
